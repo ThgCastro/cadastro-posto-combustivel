@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import org.thgcastro.cadastroconsultapostocombustivel.infrastructure.entities.TiposDeCombustivel;
 import org.thgcastro.cadastroconsultapostocombustivel.infrastructure.repositories.TiposDeCombustivelRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class TiposDeCombustivelService {
@@ -14,6 +16,10 @@ public class TiposDeCombustivelService {
 
     public void criar(TiposDeCombustivel tiposDeCombustivel){
         tiposDeCombustivelRepository.save(tiposDeCombustivel);
+    }
+
+    public List<TiposDeCombustivel> buscarTiposDeCombustivel(){
+        return tiposDeCombustivelRepository.findAll();
     }
 
     public TiposDeCombustivel buscarTiposDeCombustivelPorId(Integer id){

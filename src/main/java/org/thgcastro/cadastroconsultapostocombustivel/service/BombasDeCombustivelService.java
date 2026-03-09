@@ -5,7 +5,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 import org.thgcastro.cadastroconsultapostocombustivel.infrastructure.entities.BombasDeCombustivel;
+import org.thgcastro.cadastroconsultapostocombustivel.infrastructure.entities.TiposDeCombustivel;
 import org.thgcastro.cadastroconsultapostocombustivel.infrastructure.repositories.BombasDeCombustivelRepository;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -15,6 +18,10 @@ public class BombasDeCombustivelService {
 
     public void criar(BombasDeCombustivel bombasDeCombustivel){
         bombasDeCombustivelRepository.save(bombasDeCombustivel);
+    }
+
+    public List<BombasDeCombustivel> buscarBombasDeCombustivel(){
+        return bombasDeCombustivelRepository.findAll();
     }
 
     public BombasDeCombustivel buscarBombasPorId(Integer id){
